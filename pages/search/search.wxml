@@ -1,0 +1,55 @@
+<!--pages/search/search.wxml-->
+<view class="searchContainer">
+  <view class="header">
+    <view class="searchInput">
+      <image class="searchIcon" src="/static/images/search/search.png"></image>
+      <!-- 这里可以获取默认搜索关键字 -->
+      <!-- 
+      input事件：变化调用
+      change事件：失焦调用
+     -->
+      <input value="{{searchContent}}" bindinput="handleInputChange" type="text" placeholder="{{placeHolderContent}}" placeholder-class="placeholder" />
+      <text hidden="{{!searchContent}}" class="clear" bindtap="handleClearSearchContent">×</text>
+    </view>
+    <text class="cancel">取消</text>
+  </view>
+  <block wx:if="{{searchContent.length}}">
+    <!-- 模糊搜索 -->
+    <view class="showSearchContent">
+      <view class="searchContent">
+        搜索内容：{{searchContent}}
+      </view>
+      <view class="searchList">
+        <view class="searchItem" wx:for="{{songsList}}" wx:key="id">
+          <image class="searchIcon2" src="/static/images/search/search.png"></image>
+          <text class="content">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+  <!-- 搜索历史记录 -->
+  <view class="history" wx:if="{{searchHistory.length}}">
+    <view class="title">历史记录</view>
+    <view class="historyItem" wx:for="{{searchHistory}}" wx:key="{{item}}">
+      {{item}}
+    </view>
+    <text class="delete" bindtap="deleteSearchHistory">清空</text>
+  </view>
+    <!-- 热搜榜 -->
+    <view class="hotContainer">
+      <view class="title">
+        热搜榜
+      </view>
+      <!-- 热搜列表 -->
+      <view class="hotList">
+        <view class="hotItem" wx:for="{{hotList}}" wx:key="score">
+          <text class="order">{{index+1}}</text>
+          <text>{{item.searchWord}}</text>
+          <image class="icon" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

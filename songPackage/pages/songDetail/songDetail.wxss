@@ -1,0 +1,138 @@
+.songDetailContainer{
+  background-color: rgba(62, 99, 101, 0.8);
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+.songDetailContainer .author{
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  color: white;
+}
+.songDetailContainer .circle{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: white;
+  margin: 10rpx 0;
+  position: relative;
+  z-index: 100;
+}
+.songDetailContainer .needle{
+  width: 192rpx;
+  height: 274rpx;
+  /* border: red solid 1rpx; */
+  position: relative;
+  left: 57rpx;
+  top: -64rpx;
+  z-index: 99;
+  transform-origin: 40rpx 25rpx;
+  transition: linear 0.3s;
+}
+.songDetailContainer .needleRotate{
+  transform: rotate(-20deg);
+  transition: linear 0.3s;
+}
+.discContainer{
+  width: 598rpx;
+  height: 598rpx;
+  /* border: red solid 1rpx; */
+  position: relative;
+  top: -190rpx;
+  z-index: 1;
+  animation: disc 40s linear infinite;
+  /* animation-delay: 0.3s; */
+  animation-play-state:paused;
+}
+/* animation定义动画：动画名 时间 运动曲线 */
+/* @keyframes：
+  设置动画帧 
+    from to 
+    适用于简单动画，只有起始帧和结束帧
+  百分比
+    复杂动画
+*/
+.discAnimation{
+  animation-play-state:running;
+}
+
+@keyframes disc {
+  from{
+    transform:rotate(0deg)
+  }
+  to{
+    transform:rotate(360deg)
+  }
+}
+.discContainer .disc{
+  height: 100%;
+  width: 100%;
+}
+.musicImage{
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+/* 控制菜单 */
+.musicControl{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 80rpx;
+  left: 0;
+  border-top: 1rpx solid rgba(62, 99, 101, 0.8);
+  padding-top: 40rpx;
+}
+.musicControl text{
+  width: 20%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: white;
+  font-size: 50rpx;  
+}
+.musicControl text.big{
+  font-size: 80rpx;
+}
+
+/* 进度条 */
+.progressControl{
+  width: 640rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  position: absolute;
+  bottom: 250rpx;
+}
+.barControl{
+  width: 450rpx;
+  height: 4rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: auto;
+  position: relative;
+}
+.audio-currentTime-bar{
+  width: 200rpx;
+  height: 4rpx;
+  background-color: #bcffe0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.ball{
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  right: -6rpx;
+  top: -4rpx;
+}

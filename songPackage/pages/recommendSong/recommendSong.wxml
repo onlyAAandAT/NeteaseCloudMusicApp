@@ -1,0 +1,30 @@
+<view class="recommendSongContainer">
+  <!-- 头部 -->
+  <view class="header">
+    <image class="" src="/static/images/recommendSong/recommendSong.jpg"></image>
+    <view class="date">
+      <text class="day">{{day}} / </text>
+      <text class="month">{{month}}</text>
+    </view>
+  </view>
+  <!-- 列表区域 -->
+  <view class="listContainer">
+    <view class="listHeader">
+      <text>播放全部</text>
+      <text class="changeMore">多选</text>
+    </view>
+
+    <!-- 内容区 -->
+    <scroll-view class="listScroll" scroll-y="true">
+      <view class="scrollItem" wx:for="{{recommendList}}" data-index="{{index}}" wx:key="id" bindtap="toSongDetail" data-song="{{item}}">
+        <image src="{{item.al.picUrl}}"></image>
+        <view class="musicInfo">
+          <text class="musicName">{{item.name}}</text>
+          <text class="author">{{item.ar[0].name}}</text>
+        </view>
+        <!-- 等到用户登录信息到了才显示最好 -->
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

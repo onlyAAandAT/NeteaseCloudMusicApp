@@ -1,0 +1,11 @@
+<!--pages/other/other.wxml-->
+<import src="/template/myTemplate/myTemplate"></import>
+<view class="otherContainer">
+  <!-- 测试模板 -->
+  <view>测试使用模板</view>
+  <template is="myTem" data="{{...item}}"></template>
+  <!-- 测试获取微信用户唯一标识openID -->
+  <view class="otherTitle">
+    <button bindtap="handleGetOpenId">登录</button>
+  </view>
+</view>
